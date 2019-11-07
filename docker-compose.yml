@@ -1,0 +1,20 @@
+version: "3.3"
+services:
+  sql-server-db:
+    container_name: sql-server-db
+    image: microsoft/mssql-server-linux:2017-latest
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "Fred1234"
+      ACCEPT_EULA: "Y"
+  seq:
+    container_name: seq
+    environment:
+      - ACCEPT_EULA=Y
+    ports:
+      - '88:80'
+    image: 'datalust/seq:latest'
+    restart: unless-stopped
+    volumes:
+      - 'C:/data:/data'
