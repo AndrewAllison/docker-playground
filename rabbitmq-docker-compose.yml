@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+  rabbitmq:
+    container_name: rabbitmq-1
+    image: 'rabbitmq:3-management'
+    ports:
+      - '4369:4369'
+      - '5672:5672'
+      - '25672:25672'
+      - '15672:15672'
+    volumes:
+      - 'C:/Data/RabbitMq:/var/lib/rabbitmq/mnesia'
+    environment: 
+      - RABBITMQ_DISK_FREE_LIMIT=25MB
+volumes:
+  rabbitmq_data:
+    driver: local
