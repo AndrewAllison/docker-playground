@@ -6,3 +6,6 @@
 
 # Kill all apps
 docker ps -a -q --format="{{.ID}}" | ForEach-Object -Process {docker rm $_ -f}
+
+## Run a command in ssh
+rabbitmqctl list_bindings

@@ -1,0 +1,9 @@
+version: '3.3'
+services:
+  azure-storage:
+    image: mcr.microsoft.com/azure-storage/azurite
+    ports:
+      - '10000:10000'
+      - '10001:10001'
+    volumes:
+            - 'c:/azurite:/data'
